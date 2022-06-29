@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const service = axios.create({
-    baseURL: 'https://restcountries.com/v2/',
+    baseURL: 'https://jsonplaceholder.typicode.com',
     headers: {
         'Content-Type': 'application/json'
     }
