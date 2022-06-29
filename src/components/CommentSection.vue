@@ -1,5 +1,5 @@
 <script setup>
-import { inject, ref, defineEmits } from "vue";
+import { inject, ref } from "vue";
 import FormInput from "./FormInput.vue";
 import TextArea from "./TextArea.vue";
 import TitleSection from "./TitleSection.vue";
@@ -24,7 +24,6 @@ async function submitComment() {
 
     if (response.status == 201) {
       emit("onSuccess", response.data);
-      getComment();
     }
 
     return response.data;

@@ -1,5 +1,5 @@
 <script setup>
-import { inject, onMounted, ref, defineEmits } from "vue";
+import { inject, onMounted, ref } from "vue";
 import CardComment from "./icons/CardComment.vue";
 import TitleSection from "./TitleSection.vue";
 import DialogUpdate from "./DialogUpdate.vue";
@@ -48,6 +48,7 @@ function onCloseModalUpdate(value) {
 
     <!-- list comment -->
     <div class="flex flex-col gap-4">
+      <div v-if="listComment.length == 0">Tunggu Sebentar...</div>
       <CardComment
         v-for="(item, index) in listComment"
         :key="index"

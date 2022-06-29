@@ -13,7 +13,6 @@ const isOpen = ref(false);
 
 function closeModal() {
   //   isOpen.value = false;
-  console.log("konotol");
   emits("onClose", false);
 }
 function openModal() {
@@ -29,7 +28,6 @@ async function submitUpdate() {
       comment: comment.value,
     });
     if (response.status == 200) {
-      console.log("berhasil");
       closeModal();
     }
   } catch (e) {
@@ -99,7 +97,7 @@ const props = defineProps({
                   <TextArea v-model="comment" />
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 flex justify-end">
                   <button
                     type="button"
                     class="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors ease-out duration-200"
