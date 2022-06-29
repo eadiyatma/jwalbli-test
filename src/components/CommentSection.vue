@@ -5,6 +5,7 @@ import TextArea from "./TextArea.vue";
 import TitleSection from "./TitleSection.vue";
 
 const axios = inject("axios");
+const swal = inject("$swal");
 
 const emit = defineEmits({
   onSuccess: {
@@ -24,11 +25,21 @@ async function submitComment() {
 
     if (response.status == 201) {
       emit("onSuccess", response.data);
+      swal({
+        title: "Berhasil Ditambahkan",
+        icon: "success",
+        timer: 2000,
+      });
     }
 
     return response.data;
   } catch (e) {
     console.log(e);
+    swal({
+      title: "Gagal Ditambahkan",
+      icon: "error",
+      timer: 2000,
+    });
   }
 }
 </script>

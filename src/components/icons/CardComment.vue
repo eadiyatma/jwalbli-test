@@ -45,13 +45,13 @@ function tapUpdate() {
     <div class="text-white flex flex-row gap-2 justify-end">
       <button
         @click="tapUpdate"
-        class="px-4 py-2 bg-green-600 hover:bg-green-700 transition-colors ease-out duration-200 rounded"
+        class="px-4 py-2 bg-gray-400 hover:bg-gray-700 transition-colors ease-out duration-200 rounded"
       >
         Ubah
       </button>
       <button
         @click="tapDelete"
-        class="px-4 py-2 bg-red-600 hover:bg-red-700 transition-colors ease-out duration-200 rounded"
+        class="px-4 py-2 bg-error hover:bg-red-700 transition-colors ease-out duration-200 rounded"
       >
         Hapus
       </button>

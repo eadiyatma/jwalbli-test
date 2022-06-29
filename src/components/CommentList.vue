@@ -5,6 +5,7 @@ import TitleSection from "./TitleSection.vue";
 import DialogUpdate from "./DialogUpdate.vue";
 
 const axios = inject("axios");
+const swal = inject("$swal");
 
 onMounted(() => {
   getComment();
@@ -33,6 +34,43 @@ function tapUpdate(value) {
 }
 function tapDelete(value) {
   console.log(value);
+  idUpdate.value = value;
+  swal({
+    title: "Data akan dihapus",
+    text: "Anda ingin menghapusnya?",
+    icon: "warning",
+    confirmButtonText: "Hapus",
+    denyButtonText: "Batal",
+    showDenyButton: true,
+    reverseButtons: true,
+    confirmButtonColor: "#F5587B",
+    denyButtonColor: "#D1D5DB",
+  }).then((result) => {
+    if (result.isConfirmed) deleteData();
+  });
+}
+
+async function deleteData() {
+  try {
+    const response = await axios.delete(`comments/${idUpdate.value}`);
+    console.log(response);
+    if (response.status == 200) {
+      swal({
+        title: "Berhasil Dihapus",
+        icon: "success",
+        timer: 2000,
+      });
+      getComment();
+    }
+    return response.data;
+  } catch (e) {
+    console.log(e);
+    swal({
+      title: "Gagal Dihapus",
+      icon: "error",
+      timer: 2000,
+    });
+  }
 }
 
 const modalUpdateOpen = ref(false);

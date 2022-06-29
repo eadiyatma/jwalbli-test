@@ -18,7 +18,7 @@ function closeModal() {
 function openModal() {
   isOpen.value = true;
 }
-
+const swal = inject("$swal");
 const axios = inject("axios");
 const comment = ref("");
 async function submitUpdate() {
@@ -28,10 +28,20 @@ async function submitUpdate() {
       comment: comment.value,
     });
     if (response.status == 200) {
+      swal({
+        title: "Berhasil Diubah",
+        icon: "success",
+        timer: 2000,
+      });
       closeModal();
     }
   } catch (e) {
     console.log(e);
+    swal({
+      title: "Gagal Diubah",
+      icon: "success",
+      timer: 2000,
+    });
   }
 }
 
