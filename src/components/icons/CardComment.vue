@@ -35,7 +35,7 @@ function tapDelete() {
 }
 
 function tapUpdate() {
-  emits("tapUpdate", props.id);
+  emits("tapUpdate", props.item);
 }
 </script>
 

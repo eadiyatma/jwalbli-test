@@ -35,6 +35,7 @@ export default defineComponent({
     <div v-if="label" class="font-bold">{{ label }}</div>
     <textarea
       :modelValue="modelValue"
+      :value="modelValue"
       class="p-4 border shadow-shadowDrop border-gray-200 rounded-lg transition focus:ring focus:ring-primary outline-none w-full"
       :placeholder="placeholder"
       @input="onInput"

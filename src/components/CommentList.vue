@@ -27,10 +27,13 @@ async function getComment() {
 }
 
 const idUpdate = ref("");
+const itemData = ref({});
 function tapUpdate(value) {
-  console.log(value);
+  // console.log(value);
+  itemData.value = value;
+  idUpdate.value = value.id;
+  console.log("asdasd");
   modalUpdateOpen.value = true;
-  idUpdate.value = value;
 }
 function tapDelete(value) {
   console.log(value);
@@ -100,13 +103,14 @@ function onCloseModalUpdate(value) {
         :id="`${item.id}`"
         :item="item"
         @tapDelete="tapDelete"
-        @tapUpdate="tapUpdate(item.id)"
+        @tapUpdate="tapUpdate(item)"
       />
     </div>
 
     <!-- show modal -->
     <DialogUpdate
       :is-modal-open="modalUpdateOpen"
+      :item="itemData"
       @onClose="onCloseModalUpdate"
       :id="`${idUpdate}`"
     />

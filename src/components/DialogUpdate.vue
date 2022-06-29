@@ -1,5 +1,5 @@
 <script setup>
-import { ref, inject } from "vue";
+import { ref, inject, watch } from "vue";
 import {
   TransitionRoot,
   TransitionChild,
@@ -28,6 +28,7 @@ async function submitUpdate() {
       comment: comment.value,
     });
     if (response.status == 200) {
+      comment.value = "";
       swal({
         title: "Berhasil Diubah",
         icon: "success",
@@ -39,7 +40,7 @@ async function submitUpdate() {
     console.log(e);
     swal({
       title: "Gagal Diubah",
-      icon: "success",
+      icon: "error",
       timer: 2000,
     });
   }
@@ -62,7 +63,22 @@ const props = defineProps({
     default: "",
     required: true,
   },
+  item: {
+    type: Object,
+    default: {},
+    required: true,
+  },
 });
+
+watch(
+  () => props.isModalOpen,
+  (first) => {
+    console.log("Watch props.selected function called with args:", first);
+    comment.value = props.item.body;
+    console.log(comment.value);
+    console.log(props.item.body);
+  }
+);
 </script>
 
 <template>
