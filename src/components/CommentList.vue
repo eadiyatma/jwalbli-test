@@ -36,8 +36,13 @@ function tapDelete(value) {
   console.log(value);
   idUpdate.value = value;
   swal({
-    title: "Data akan dihapus",
-    text: "Anda ingin menghapusnya?",
+    title: "Komentar akan dihapus",
+    html:
+      `<p class="text-left font-medium">Email: </p>` +
+      `<p class="text-left text-primary font-medium">${value.email}</p>` +
+      `<br />` +
+      `<p class="text-left font-medium">Komentar: </p>` +
+      `<p class="text-left">${value.body}</p>`,
     icon: "warning",
     confirmButtonText: "Hapus",
     denyButtonText: "Batal",
@@ -93,6 +98,7 @@ function onCloseModalUpdate(value) {
         :name="item.email"
         :desc="item.body"
         :id="`${item.id}`"
+        :item="item"
         @tapDelete="tapDelete"
         @tapUpdate="tapUpdate(item.id)"
       />

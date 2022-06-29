@@ -24,7 +24,7 @@ function toComment() {
 <template>
   <nav>
     <div class="flex gap-16">
-      <div class="">Hello Jwalbli</div>
+      <div class="font-bold text-xl">Hello Jwalbli</div>
       <ul class="flex gap-4">
         <li><button class="bg-transparent" @click="toHome">Home</button></li>
         <li>

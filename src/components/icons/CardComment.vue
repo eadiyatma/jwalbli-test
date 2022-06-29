@@ -13,6 +13,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  item: {
+    type: Object,
+    default: {},
+  },
 });
 
 const emits = defineEmits({
@@ -27,7 +31,7 @@ const emits = defineEmits({
 });
 
 function tapDelete() {
-  emits("tapDelete", props.id);
+  emits("tapDelete", props.item);
 }
 
 function tapUpdate() {
