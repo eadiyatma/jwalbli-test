@@ -21,14 +21,14 @@ const comment = ref("");
 async function submitComment() {
   try {
     const response = await axios.post("/comments", {
-      name: "Anonim",
-      comment: comment.value,
+      email: "Anonim@mail.com",
+      body: comment.value,
     });
 
     if (response.status == 201) {
+      toast.success("Komentar berhasil ditambahkan");
       emit("onSuccess", response.data);
       comment.value = "";
-      toast.success("Komentar berhasil ditambahkan");
     }
 
     return response.data;

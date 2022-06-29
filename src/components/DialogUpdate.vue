@@ -67,10 +67,7 @@ const props = defineProps({
 watch(
   () => props.isModalOpen,
   (first) => {
-    console.log("Watch props.selected function called with args:", first);
     comment.value = props.item.body;
-    console.log(comment.value);
-    console.log(props.item.body);
   }
 );
 </script>

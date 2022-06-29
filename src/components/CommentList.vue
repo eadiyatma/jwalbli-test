@@ -1,5 +1,5 @@
 <script setup>
-import { inject, onMounted, ref } from "vue";
+import { inject, onMounted, ref, watch } from "vue";
 import CardComment from "./icons/CardComment.vue";
 import TitleSection from "./TitleSection.vue";
 import DialogUpdate from "./DialogUpdate.vue";
@@ -80,6 +80,21 @@ function onCloseModalUpdate(value) {
   modalUpdateOpen.value = false;
   console.log(value);
 }
+
+const props = defineProps({
+  newItem: {
+    type: Object,
+    default: {},
+    required: true,
+  },
+});
+
+watch(
+  () => props.newItem,
+  (first) => {
+    listComment.value.unshift(first);
+  }
+);
 </script>
 
 <template>

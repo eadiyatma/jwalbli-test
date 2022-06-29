@@ -5,8 +5,11 @@ import CommentSubmit from "../components/CommentSubmit.vue";
 import CommentList from "../components/CommentList.vue";
 import { inject, ref } from "vue";
 
+const newItem = ref({});
+
 function successSubmit(value) {
   console.log(value);
+  newItem.value = value;
 }
 
 function onTapHome() {
@@ -44,7 +47,7 @@ const toComment = () => {
       <CommentSubmit @onSuccess="successSubmit" />
 
       <!-- list comment -->
-      <CommentList ref="refComment" class="mt-8" />
+      <CommentList :new-item="newItem" ref="refComment" class="mt-8" />
     </div>
   </main>
 </template>
