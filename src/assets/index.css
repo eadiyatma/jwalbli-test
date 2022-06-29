@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Gotham;
+    src: local("Gotham"), url("/src/assets/fonts/GothamLight.ttf");
+  }
+  @font-face {
+    font-family: GothamBold;
+    src: local("GothamBold"), url("/src/assets/fonts/GothamBold.ttf");
+  }
+}
