@@ -2,6 +2,7 @@
 import { inject, ref, defineEmits } from "vue";
 import FormInput from "./FormInput.vue";
 import TextArea from "./TextArea.vue";
+import TitleSection from "./TitleSection.vue";
 
 const axios = inject("axios");
 
@@ -22,7 +23,6 @@ async function submitComment() {
     });
 
     if (response.status == 201) {
-      comment.value = "";
       emit("onSuccess", response.data);
       getComment();
     }
@@ -36,7 +36,7 @@ async function submitComment() {
 
 <template>
   <div class="flex flex-col gap-2">
-    <div class="font-medium">Tambah Komentar</div>
+    <TitleSection>Tambah Komentar</TitleSection>
     <!-- <FormInput placeholder="Comment"></FormInput> -->
     <TextArea v-model="comment"></TextArea>
     <!-- button submit -->
