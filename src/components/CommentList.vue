@@ -3,9 +3,11 @@ import { inject, onMounted, ref } from "vue";
 import CardComment from "./icons/CardComment.vue";
 import TitleSection from "./TitleSection.vue";
 import DialogUpdate from "./DialogUpdate.vue";
+import { useToast } from "vue-toastification";
 
 const axios = inject("axios");
 const swal = inject("$swal");
+const toast = useToast();
 
 onMounted(() => {
   getComment();
@@ -37,7 +39,7 @@ function tapUpdate(value) {
 }
 function tapDelete(value) {
   console.log(value);
-  idUpdate.value = value;
+  idUpdate.value = value.id;
   swal({
     title: "Komentar akan dihapus",
     html:
@@ -61,23 +63,15 @@ function tapDelete(value) {
 async function deleteData() {
   try {
     const response = await axios.delete(`comments/${idUpdate.value}`);
-    console.log(response);
+    console.log(response.status);
     if (response.status == 200) {
-      swal({
-        title: "Berhasil Dihapus",
-        icon: "success",
-        timer: 2000,
-      });
+      toast.success("Komentar berhasil dihapus");
       getComment();
     }
     return response.data;
   } catch (e) {
+    toast.error("Komentar gagal dihapus");
     console.log(e);
-    swal({
-      title: "Gagal Dihapus",
-      icon: "error",
-      timer: 2000,
-    });
   }
 }
 

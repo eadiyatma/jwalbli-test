@@ -1,7 +1,7 @@
 <script setup>
 import NavBar from "../components/NavBar.vue";
 import ProfileSection from "../components/ProfileSection.vue";
-import CommentSection from "../components/CommentSection.vue";
+import CommentSubmit from "../components/CommentSubmit.vue";
 import CommentList from "../components/CommentList.vue";
 import { inject, ref } from "vue";
 
@@ -41,7 +41,7 @@ const toComment = () => {
       <ProfileSection />
 
       <!-- Comment section -->
-      <CommentSection @onSuccess="successSubmit" />
+      <CommentSubmit @onSuccess="successSubmit" />
 
       <!-- list comment -->
       <CommentList ref="refComment" class="mt-8" />

@@ -8,7 +8,9 @@ import {
   DialogTitle,
 } from "@headlessui/vue";
 import TextArea from "./TextArea.vue";
+import { useToast } from "vue-toastification";
 
+const toast = useToast();
 const isOpen = ref(false);
 
 function closeModal() {
@@ -29,20 +31,12 @@ async function submitUpdate() {
     });
     if (response.status == 200) {
       comment.value = "";
-      swal({
-        title: "Berhasil Diubah",
-        icon: "success",
-        timer: 2000,
-      });
       closeModal();
+      toast.success("Komentar berhasil diubah");
     }
   } catch (e) {
     console.log(e);
-    swal({
-      title: "Gagal Diubah",
-      icon: "error",
-      timer: 2000,
-    });
+    toast.success("Komentar gagal diubah");
   }
 }
 

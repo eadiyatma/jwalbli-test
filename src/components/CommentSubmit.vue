@@ -3,9 +3,11 @@ import { inject, ref } from "vue";
 import FormInput from "./FormInput.vue";
 import TextArea from "./TextArea.vue";
 import TitleSection from "./TitleSection.vue";
+import { useToast } from "vue-toastification";
 
 const axios = inject("axios");
 const swal = inject("$swal");
+const toast = useToast();
 
 const emit = defineEmits({
   onSuccess: {
@@ -25,21 +27,14 @@ async function submitComment() {
 
     if (response.status == 201) {
       emit("onSuccess", response.data);
-      swal({
-        title: "Berhasil Ditambahkan",
-        icon: "success",
-        timer: 2000,
-      });
+      comment.value = "";
+      toast.success("Komentar berhasil ditambahkan");
     }
 
     return response.data;
   } catch (e) {
     console.log(e);
-    swal({
-      title: "Gagal Ditambahkan",
-      icon: "error",
-      timer: 2000,
-    });
+    toast.error("Komentar gagal ditambahkan");
   }
 }
 </script>
