@@ -14,7 +14,8 @@ const pic = new URL(`../assets/efran.png`, import.meta.url).href;
         <div class="text-4xl md:text-6xl font-bold">Efran Adiyatma</div>
         <div class="text-md md:text-xl">
           Saya tinggal di Bandung dan saya berpengalaman sebagai Front-end
-          developer selama 1 tahun 9 bulan.
+          developer selama 1 tahun 9 bulan. Saya biasa mengerjakan project
+          menggunakan Nuxt Js dan Vue Js.
         </div>
       </div>
       <div class="">
