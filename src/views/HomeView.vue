@@ -4,6 +4,7 @@ import ProfileSection from "../components/ProfileSection.vue";
 import CommentSubmit from "../components/CommentSubmit.vue";
 import CommentList from "../components/CommentList.vue";
 import { inject, ref, onMounted, onUnmounted } from "vue";
+import TabBarNav from "../components/TabBarNav.vue";
 
 const newItem = ref({});
 
@@ -62,6 +63,9 @@ const toComment = () => {
 
       <!-- list comment -->
       <CommentList :new-item="newItem" ref="refComment" class="mt-8" />
+
+      <!-- bottom navigation -->
+      <TabBarNav />
     </div>
   </main>
 </template>
