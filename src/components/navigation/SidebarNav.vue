@@ -24,32 +24,50 @@ const toggleSidebar = () => {
     </div>
 
     <!-- overlay -->
-    <div
-      @click="toggleSidebar"
-      v-if="isOpen"
-      class="fixed w-full h-screen bg-gray-700 left-0 top-0 opacity-10"
-    ></div>
+    <Transition
+      enter-active-class="duration-300 ease-out"
+      enter-from-class="transform opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="duration-200 ease-in"
+      leave-from-class="opacity-100"
+      leave-to-class="transform opacity-0"
+    >
+      <div
+        @click="toggleSidebar"
+        v-if="isOpen"
+        class="fixed w-full h-screen bg-gray-700 left-0 top-0 opacity-10"
+      ></div
+    ></Transition>
 
     <!-- sidebar menu -->
-    <div
-      v-if="isOpen"
-      class="fixed h-screen bg-white shadow border right-0 top-0 rounded-l-xl"
+    <Transition
+      enter-active-class="duration-200 ease-out"
+      enter-from-class="transform opacity-0 -right-60"
+      enter-to-class="opacity-100"
+      leave-active-class="duration-200 ease-in"
+      leave-from-class="opacity-100"
+      leave-to-class="transform opacity-0 -right-60"
     >
-      <!-- side menu -->
-      <div class="p-8">
-        <ul class="flex flex-col gap-12 font-medium text-xl text-primary">
-          <li>
-            <a href="#home" class="flex gap-2 items-center"
-              ><IconHome /> Home</a
-            >
-          </li>
-          <li>
-            <a href="#comment" class="flex gap-2 items-center"
-              ><IconComment /> Komentar</a
-            >
-          </li>
-        </ul>
+      <div
+        v-if="isOpen"
+        class="fixed h-screen bg-white shadow border right-0 top-0 rounded-l-xl"
+      >
+        <!-- side menu -->
+        <div class="p-8">
+          <ul class="flex flex-col gap-12 font-medium text-xl text-primary">
+            <li>
+              <a href="#home" class="flex gap-2 items-center"
+                ><IconHome /> Home</a
+              >
+            </li>
+            <li>
+              <a href="#comment" class="flex gap-2 items-center"
+                ><IconComment /> Komentar</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </Transition>
   </div>
 </template>

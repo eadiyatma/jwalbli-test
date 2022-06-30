@@ -30,7 +30,7 @@ function toComment() {
 
 <template>
   <nav>
-    <div class="flex gap-16">
+    <div class="flex flex-col sm:flex-row gap-4 sm:gap-16">
       <div class="font-bold text-xl">Hello Jwalbli</div>
       <ul class="flex gap-6 font-medium">
         <li>
