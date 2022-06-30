@@ -3,9 +3,16 @@ import NavBar from "../components/NavBar.vue";
 import ProfileSection from "../components/ProfileSection.vue";
 import CommentSubmit from "../components/CommentSubmit.vue";
 import CommentList from "../components/CommentList.vue";
-import { inject, ref } from "vue";
+import { inject, ref, onMounted, onUnmounted } from "vue";
 
 const newItem = ref({});
+
+onMounted(() => {
+  window.addEventListener("scroll", onTapComment);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", onTapComment);
+});
 
 function successSubmit(value) {
   console.log(value);
@@ -19,7 +26,14 @@ function onTapHome() {
 const smoothScroll = inject("smoothScroll");
 function onTapComment() {
   console.log("comment");
-  toComment();
+  document.getElementById("comment").scrollTop += 10;
+
+  // toComment();
+  // document.getElementById('parent').
+  window.scrollTo({
+    bottom: document.getElementById(`comment`),
+    behavior: "smooth",
+  });
 }
 
 const refComment = ref(null);
@@ -32,19 +46,19 @@ const toComment = () => {
 </script>
 
 <template>
-  <main class="bg-gray-200">
+  <main id="parent" class="bg-gray-200 scroll-smooth">
     <!-- create container -->
     <div
       class="px-8 py-6 xl:max-w-7xl mx-auto h-screen shadow bg-white rounded overflow-auto overflow-y-visible"
     >
-      <NavBar @onTapHome="onTapHome" @onTapComment="onTapComment" />
+      <NavBar id="home" @onTapHome="onTapHome" @onTapComment="onTapComment" />
       <!-- Navbar -->
 
       <!-- Profile -->
       <ProfileSection />
 
       <!-- Comment section -->
-      <CommentSubmit @onSuccess="successSubmit" />
+      <CommentSubmit id="comment" @onSuccess="successSubmit" />
 
       <!-- list comment -->
       <CommentList :new-item="newItem" ref="refComment" class="mt-8" />

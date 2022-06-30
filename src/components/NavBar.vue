@@ -1,5 +1,6 @@
 <script setup>
 // import { defineComponent } from "vue";
+import { onMounted, onUnmounted } from "vue";
 
 const emits = defineEmits({
   onTapComment: {
@@ -16,7 +17,11 @@ function toHome() {
   emits("onTapHome");
 }
 function toComment() {
-  console.log("licki");
+  // window.scrollTo({
+  //   top: document.getElementById(`comment`),
+  //   behavior: "smooth",
+  // });
+  // console.log("licki");
   emits("onTapComment");
 }
 </script>
@@ -26,9 +31,9 @@ function toComment() {
     <div class="flex gap-16">
       <div class="font-bold text-xl">Hello Jwalbli</div>
       <ul class="flex gap-4">
-        <li><button class="bg-transparent" @click="toHome">Home</button></li>
+        <li><a href="#home" class="bg-transparent">Home</a></li>
         <li>
-          <button class="bg-transparent" @click="toComment">Komentar</button>
+          <a href="#comment" class="bg-transparent">Komentar</a>
         </li>
       </ul>
     </div>

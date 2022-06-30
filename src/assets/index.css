@@ -11,4 +11,7 @@
     font-family: GothamBold;
     src: local("GothamBold"), url("/src/assets/fonts/GothamBold.ttf");
   }
+  html {
+    @apply scroll-smooth;
+  }
 }
