@@ -13,8 +13,8 @@ const pic = new URL(`../assets/efran.png`, import.meta.url).href;
         <div class="text-xl md:text-4xl">Hi, Saya</div>
         <div class="text-4xl md:text-6xl font-bold">Efran Adiyatma</div>
         <div class="text-md md:text-xl">
-          Saya berpengalaman sebagai front-end developer untuk sekitar 1.5
-          tahun.
+          Saya tinggal di Bandung dan saya berpengalaman sebagai Front-end
+          developer selama 1 tahun 9 bulan.
         </div>
       </div>
       <div class="">
