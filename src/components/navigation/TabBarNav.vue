@@ -1,10 +1,10 @@
 <script setup>
-import IconHome from "./icons/IconHome.vue";
-import IconComment from "./icons/IconComment.vue";
+import IconHome from "../icons/IconHome.vue";
+import IconComment from "../icons/IconComment.vue";
 </script>
 
 <template>
-  <div class="fixed w-full bottom-0 left-0 bottom-2 flex justify-center">
+  <div class="fixed w-full left-0 bottom-2 flex justify-center">
     <div class="px-6 py-4 bg-white shadow border rounded-lg">
       <ul class="flex gap-12 font-medium text-xl text-primary">
         <li>

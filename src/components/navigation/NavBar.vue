@@ -1,6 +1,8 @@
 <script setup>
 // import { defineComponent } from "vue";
 import { onMounted, onUnmounted } from "vue";
+import IconHome from "../icons/IconHome.vue";
+import IconComment from "../icons/IconComment.vue";
 
 const emits = defineEmits({
   onTapComment: {
@@ -30,10 +32,16 @@ function toComment() {
   <nav>
     <div class="flex gap-16">
       <div class="font-bold text-xl">Hello Jwalbli</div>
-      <ul class="flex gap-4">
-        <li><a href="#home" class="bg-transparent">Home</a></li>
+      <ul class="flex gap-6 font-medium">
         <li>
-          <a href="#comment" class="bg-transparent">Komentar</a>
+          <a href="#home" class="bg-transparent flex items-center gap-2"
+            ><IconHome /> Home</a
+          >
+        </li>
+        <li>
+          <a href="#comment" class="bg-transparent flex items-center gap-2"
+            ><IconComment /> Komentar</a
+          >
         </li>
       </ul>
     </div>

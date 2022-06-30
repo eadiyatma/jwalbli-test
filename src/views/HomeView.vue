@@ -1,10 +1,11 @@
 <script setup>
-import NavBar from "../components/NavBar.vue";
+import NavBar from "../components/navigation/NavBar.vue";
 import ProfileSection from "../components/ProfileSection.vue";
 import CommentSubmit from "../components/CommentSubmit.vue";
 import CommentList from "../components/CommentList.vue";
 import { inject, ref, onMounted, onUnmounted } from "vue";
-import TabBarNav from "../components/TabBarNav.vue";
+import TabBarNav from "../components/navigation/TabBarNav.vue";
+import SidebarNav from "../components/navigation/SidebarNav.vue";
 
 const newItem = ref({});
 
@@ -66,6 +67,9 @@ const toComment = () => {
 
       <!-- bottom navigation -->
       <TabBarNav />
+
+      <!-- sidebar navigation -->
+      <SidebarNav />
     </div>
   </main>
 </template>
